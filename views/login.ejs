@@ -1,0 +1,64 @@
+<%- include("partials/header") %>
+<div class="form-signup">
+  <form action="/signup" method="post">
+    <h1 class="h3 mb-3 fw-normal">Kaydol</h1>
+    <div class="mb-3">
+      <label for="signupEmail" class="form-label">Email adresi</label>
+      <input
+        type="email"
+        class="form-control"
+        name="Email"
+        placeholder="name@example.com"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="signupPassword" class="form-label">Şifreniz</label>
+      <input type="password" class="form-control" name="Password" />
+    </div>
+    <div class="mb-3 form-check">
+      <input
+        name="Admin"
+        type="checkbox"
+        class="form-check-input"
+        id="signupAdminCheck"
+      />
+      <label class="form-check-label" for="signupAdminCheck"
+        >Admin Olarak Kaydol</label
+      >
+    </div>
+    <div id="signupError"></div>
+    <% if(signupFlag){ %>
+    <div class="form-text">
+      Kayıt olma sırasında hata oluştu! Lütfen tekrar deneyin.
+    </div>
+    <% } %>
+    <button class="btn btn-primary" id="signupButton">Kaydol</button>
+  </form>
+</div>
+<div class="form-login">
+  <form action="/login" method="post">
+    <h1 class="h3 mb-3 fw-normal">Giriş Yap</h1>
+    <div class="mb-3">
+      <label for="loginEmail" class="form-label">Email adresi</label>
+      <input
+        type="email"
+        class="form-control"
+        name="Email"
+        placeholder="name@example.com"
+      />
+    </div>
+    <div class="password-area mb-3">
+      <label for="loginPassword" class="form-label">Şifreniz</label>
+      <input type="password" class="form-control" name="Password" />
+      <% if(loginFlag){ %>
+      <div class="form-text">Hatalı giriş! Lütfen tekrar deneyiniz.</div>
+      <% } %>
+    </div>
+    <button type="submit" class="btn btn-primary" id="loginButton">
+      Giriş Yap
+    </button>
+  </form>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<!-- <script src="/public/scripts/login.js"></script> -->
+<%- include("partials/footer") %>
